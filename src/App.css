@@ -5,3 +5,32 @@
   text-align: center;
   border: dashed cornflowerblue 3px;
 }
+
+li {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0 20px;
+}
+
+header {
+  display: grid;
+  border-bottom: solid black 1px;
+  /* justify-content: center; */
+
+  & ul {
+    justify-self: center;
+  }
+
+  & .logo-container {
+    justify-self: first baseline;
+    border: 1px black solid;
+  }
+}
+
+.main-container {
+  min-height: 75vh;
+}
+
+footer {
+  border-top: solid black 1px;
+}

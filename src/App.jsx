@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import './App.css'
+import Header from './components/Header';
+import { Outlet } from 'react-router-dom';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -9,11 +12,11 @@ function App() {
 
   return (
     <>
-      Work in progress :)
-      <a href='https://www.google.com'>Clicky</a>
-      <button>Test</button>
-      <p className="roboto">Roboto font</p>
-      <p className="inter">Inter font</p>
+      <Header />
+      <div className="main-container">
+        <Outlet />
+      </div>
+      <Footer />
     </>
   )
 }
