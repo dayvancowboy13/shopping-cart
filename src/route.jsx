@@ -3,6 +3,7 @@ import App from './App.jsx';
 import Homepage from './components/Homepage.jsx';
 import ShopPage from './components/ShopPage.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
+import ProductPage from './components/ProductPage.jsx';
 
 const routes = [
     {
@@ -15,12 +16,16 @@ const routes = [
                 element: <Navigate to="/home" replace />
             },
             {
-                path: '/home',
+                path: 'home',
                 element: <Homepage />,
             },
             {
                 path: 'shop',
                 element: <ShopPage />,
+            },
+            {
+                path: 'shop/:productID',
+                element: <ProductPage />
             }
         ]
     },
