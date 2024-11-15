@@ -1,7 +1,25 @@
+import { useState, useEffect, useContext } from 'react';
+import ProductCard from './ProductCard';
+import { ProductDataContext } from './ProductDataContext';
+
 export default function ShopPage() {
-    return (
-        <>
-            <p>Just stuff for the Shop page</p>
-        </>
-    )
+    console.log('displaying the shop page');
+
+    const productData = useContext(ProductDataContext);
+
+    console.log(productData);
+
+    if (productData !== undefined) {
+        console.log('doing the thing!')
+        return (
+            <div data-testid='shop-page'>
+                {productData.map((product) => {
+                    console.log(product);
+                    return (
+                        <ProductCard data={product} />
+                    )
+                })}
+            </div>
+        );
+    }
 }
