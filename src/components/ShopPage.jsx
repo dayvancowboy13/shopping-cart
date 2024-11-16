@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import ProductCard from './ProductCard';
-import { ProductDataContext } from './ProductDataContext';
+import { ProductDataContext } from './ProjectContexts';
 
 export default function ShopPage() {
     console.log('displaying the shop page');
