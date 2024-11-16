@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import ProductCard from './ProductCard';
 import { ProductDataContext } from './ProductDataContext';
 
@@ -7,7 +7,7 @@ export default function ShopPage() {
 
     const productData = useContext(ProductDataContext);
 
-    console.log(productData);
+    // console.log(productData);
 
     if (productData !== undefined) {
         console.log('doing the thing!')

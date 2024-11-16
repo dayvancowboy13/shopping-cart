@@ -1,7 +1,8 @@
 export default function Homepage() {
     return (
-        <>
-            <p>Home page content here :)</p>
-        </>
+        <div data-testid='homepage'>
+            <p>Home page content here</p>
+            {/* Have a carousel with some of the products */}
+        </div>
     );
 }
