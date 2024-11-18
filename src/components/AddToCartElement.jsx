@@ -1,20 +1,41 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
+import { useState, useContext } from "react";
+import { CartContentsContext } from "./ProjectContexts";
 
-export default function AddToCartElement() {
-    const [productCount, setProductCount] = useState(0)
+export default function AddToCartElement(props) {
+    const [productQuantity, setproductQuantity] = useState(0)
+
+    const { cartContents, addToCart } = useContext(CartContentsContext);
 
     function changeCount(amt) {
-        if ((productCount + amt) < 0) return;
-        else if ((productCount + amt) > 10) return;
-        setProductCount(productCount => productCount + amt)
+        if ((productQuantity + amt) < 0) return;
+        else if ((productQuantity + amt) > 10) return;
+        setproductQuantity(productQuantity => productQuantity + amt);
     }
 
     function clickAddToCart() {
-        if (productCount === 0) alert("Can't add 0 items to cart!");
-        else console.log("Adding item to cart")
+        if (productQuantity <= 0) {
+            alert("Can't add 0 or negative items to cart!");
+            return;
+        }
+        else if (productQuantity > 10) {
+            alert('Sorry! Limit of 10 items per customer!')
+            setproductQuantity(0);
+            return;
+        }
+        else console.log("Adding item to cart");
+        // add new object to cartContext containing productID and its qty
+        addToCart(+props.productID, productQuantity);
+        setproductQuantity(0);
     }
 
-    console.log(`Product Count: ${productCount}`)
+    function onChange(e) {
+        e.preventDefault();
+        console.log(e.target.value);
+        // setproductQuantity(productQuantity => productQuantity + (+e.target.value));
+    }
+
+    console.log(`Product Count: ${productQuantity}`)
 
     return (
         <>
@@ -22,7 +43,11 @@ export default function AddToCartElement() {
             <button
                 onClick={() => changeCount(-1)}
                 id='reduce-count'>-</button>
-            <input id='product-count' type='number' defaultValue={0} value={productCount} />
+            <input onChange={(e) => setproductQuantity(e.target.value)}
+                onClick={(e) => {
+                    e.target.value = null;
+                }}
+                id='product-count' type='number' value={productQuantity} />
             <button
                 onClick={() => changeCount(+1)}
                 id='increase-count'>+</button>
@@ -30,4 +55,8 @@ export default function AddToCartElement() {
                 onClick={clickAddToCart}>Add to Cart</button>
         </>
     );
+}
+
+AddToCartElement.propTypes = {
+    productID: PropTypes.string,
 }

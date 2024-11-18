@@ -14,7 +14,7 @@ export default function ShopPage() {
         return (
             <div data-testid='shop-page'>
                 {productData.map((product) => {
-                    console.log(product);
+                    // console.log(product);
                     return (
                         <ProductCard key={product.id} data={product} />
                     )
