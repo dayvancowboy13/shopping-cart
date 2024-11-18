@@ -19,7 +19,12 @@ export default function AddToCartElement(props) {
             return;
         }
         else if (productQuantity > 10) {
-            alert('Sorry! Limit of 10 items per customer!')
+            alert('Sorry! Limit of 10 items per customer!');
+            setproductQuantity(0);
+            return;
+        }
+        else if (itemIsInCart()) {
+            alert('That item is already in the cart!');
             setproductQuantity(0);
             return;
         }
@@ -29,10 +34,10 @@ export default function AddToCartElement(props) {
         setproductQuantity(0);
     }
 
-    function onChange(e) {
-        e.preventDefault();
-        console.log(e.target.value);
-        // setproductQuantity(productQuantity => productQuantity + (+e.target.value));
+    function itemIsInCart() {
+        for (let i = 0; i < cartContents.length; i++) {
+            if (cartContents[i].id === +props.productID) return true;
+        }
     }
 
     console.log(`Product Count: ${productQuantity}`)
