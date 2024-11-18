@@ -4,8 +4,9 @@ import { CartContentsContext } from './ProjectContexts';
 
 export default function Header() {
     const { cartContents } = useContext(CartContentsContext)
-    // need to tally up the qty of each item:
-    // const itemsInCart = cartContents
+
+    const itemsInCart = cartContents.reduce(
+        (acc, elem) => acc + elem.qty, 0);
     return (
         <>
             <header>
@@ -14,7 +15,7 @@ export default function Header() {
                     <ul>
                         <li><Link to='home'>Home</Link></li>
                         <li><Link to='shop'>Shop</Link></li>
-                        <li>Cart ({cartContents.length})</li>
+                        <li>Cart ({itemsInCart})</li>
                     </ul>
                 </nav>
             </header>
