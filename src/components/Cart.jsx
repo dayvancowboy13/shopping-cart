@@ -8,6 +8,11 @@ export default function Cart() {
 
     console.log(cartContents);
 
+    let cartTotalPrice = cartContents.reduce((acc, elem) =>
+        acc + (data[elem.id].price * elem.qty), 0)
+
+    console.log(cartTotalPrice)
+
 
     return (
         <div className="cart-slider">
@@ -18,11 +23,15 @@ export default function Cart() {
                         <div key={elem.id}>
                             {data[elem.id].title}
                             <p>Quantity: {elem.qty}</p>
-                            <p>Total: {data[elem.id].price * elem.qty}</p>
+                            <p>Total: ${data[elem.id].price * elem.qty}</p>
                             <button onClick={() => removeFromCart(elem.id)}>Remove item</button>
                         </div>
                     )
                 })}
+            </div>
+            <div className="cart-footer">
+                <h2>Total: ${cartTotalPrice}</h2>
+                <button>Checkout</button>
             </div>
         </div>
     );
