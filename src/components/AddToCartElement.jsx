@@ -48,7 +48,7 @@ export default function AddToCartElement(props) {
             <button
                 onClick={() => changeCount(-1)}
                 id='reduce-count'>-</button>
-            <input onChange={(e) => setproductQuantity(e.target.value)}
+            <input onChange={(e) => setproductQuantity(+e.target.value)}
                 onClick={(e) => {
                     e.target.value = null;
                 }}

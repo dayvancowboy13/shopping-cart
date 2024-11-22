@@ -6,7 +6,7 @@ export default function Header() {
     const { cartContents } = useContext(CartContentsContext)
 
     const itemsInCart = cartContents.reduce(
-        (acc, elem) => acc + elem.qty, 0);
+        (acc, elem) => +acc + elem.qty, 0);
     return (
         <>
             <header>
