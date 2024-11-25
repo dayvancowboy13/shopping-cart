@@ -18,7 +18,7 @@ export default function ProductPage() {
         <>
             <img src={data.image} />
             <h1>{data.title}</h1>
-            <p>This is just the page for the product {productID}.</p>
+            <p>{data.description}.</p>
             <AddToCartElement productID={productID} />
         </>
     )
