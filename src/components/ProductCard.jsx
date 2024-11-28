@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
-import classes from './ProductCard.module.css';
+import classes from './styles/ProductCard.module.css';
 import { Link } from "react-router-dom";
+import { checkPriceDecimal } from "./UtilityFunctions";
 
 export default function ProductCard(props) {
     // console.log(props.data)
@@ -10,7 +11,7 @@ export default function ProductCard(props) {
             <div className={classes.card}>
                 <img src={props.data.image}></img>
                 <h1>{props.data.title}</h1>
-                <h2>Price: ${props.data.price}</h2>
+                <h2>Price: ${checkPriceDecimal(props.data.price)}</h2>
                 {/* <p>{props.data.description}</p> */}
             </div>
         </Link>

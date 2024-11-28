@@ -44,7 +44,6 @@ export default function AddToCartElement(props) {
 
     return (
         <>
-            <p>this lets the user add the item to the cart</p>
             <button
                 onClick={() => changeCount(-1)}
                 id='reduce-count'>-</button>
