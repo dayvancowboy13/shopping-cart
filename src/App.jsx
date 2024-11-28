@@ -10,6 +10,7 @@ import Cart from './components/Cart';
 function App() {
   const [productData, setProductData] = useState(null);
   const [cartContents, setCartContents] = useState([]);
+  const [cartVisible, setCartVisible] = useState(false);
   // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -35,14 +36,19 @@ function App() {
     setCartContents(tempCart.filter((elem) => elem.id !== productID));
   }
 
+  function showCart() {
+    setCartVisible(true);
+  }
+
   return (
     <>
       <CartContentsContext.Provider value={{ cartContents, addToCart, removeFromCart }}>
-        <Header />
         <ProductDataContext.Provider value={productData}>
+          <div className={cartVisible ? 'overlay show' : 'overlay'} onClick={() => setCartVisible(false)}></div>
+          <Cart cartVisible={cartVisible} setCartVisible={setCartVisible} />
+          <Header showCart={showCart} />
           <div className="main-container" data-testid='main-container'>
             <Outlet />
-            <Cart />
           </div>
         </ProductDataContext.Provider>
       </CartContentsContext.Provider>
