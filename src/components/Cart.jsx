@@ -12,8 +12,6 @@ export default function Cart({ cartVisible, setCartVisible }) {
     let cartTotalPrice = cartContents.reduce((acc, elem) =>
         acc + (data[elem.id - 1].price * elem.qty), 0);
 
-
-
     console.log(cartContents);
     console.log(classes)
 

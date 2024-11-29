@@ -1,23 +1,48 @@
 .cart {
     width: 25vw;
-    max-height: calc(100vh - 52px);
+    height: calc(100vh - 52px);
     overflow: scroll;
+    overflow-x: hidden;
     background-color: bisque;
 
     position: absolute;
-    right: 0;
+    /* right: -400px; */
     top: 0;
     padding: 25px 0;
     z-index: 11;
     /* padding-bottom: 100px; */
-}
 
-.hide {
-    visibility: hidden;
-    composes: cart;
+    /* transition:
+        right .45s ease; */
+
 }
 
 .show {
     visibility: visible;
+    right: 0;
+    opacity: 1;
+
+    transition:
+        all .3s ease;
+
+    composes: cart;
+
+}
+
+.hide {
+    /* visibility: hidden; */
+    opacity: 0;
+    right: -400px;
+
+    transition:
+        right .5s ease,
+        opacity .5s .05s ease;
+
     composes: cart;
 }
+
+
+/* 
+@starting-style {
+    .show
+} */

@@ -35,18 +35,24 @@ header {
   z-index: 10;
   width: 100vw;
   height: 100vh;
+  opacity: 0;
+
   background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(2px);
+  transition: all .4s ease;
 }
 
 .show {
   visibility: visible;
+  backdrop-filter: blur(2px);
+  opacity: 1;
+
+  transition: opacity .5s ease;
 }
 
 .main-container {
   min-height: 75vh;
   overflow: hidden;
-  /* height: 100vh; */
+  padding-top: 8px;
 }
 
 .cart-container {
