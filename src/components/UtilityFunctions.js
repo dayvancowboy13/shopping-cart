@@ -12,6 +12,6 @@ export function checkPriceDecimal(price) {
         let wholeNumber = price.split('.')[0];
         let decimal = price.split('.')[1];
 
-        return (wholeNumber + decimal[0] + decimal[1])
+        return (wholeNumber + '.' + decimal[0] + decimal[1])
     }
 }
