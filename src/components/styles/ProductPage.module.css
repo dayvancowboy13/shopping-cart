@@ -1,0 +1,126 @@
+.productContainer {
+    padding: 2em;
+    display: grid;
+    grid-template-columns: .75fr 1fr;
+
+    --border-rad: 8px;
+    /* grid-template-rows: repeat(4, 1fr); */
+}
+
+.elementShadow {
+    box-shadow: black 10px 5px;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    padding: 3em;
+}
+
+.productImg {
+    composes: elementShadow;
+    max-height: 450px;
+    width: auto;
+    max-width: 400px;
+    /* padding: 48px; */
+    border-radius: 24px;
+    border: black 1px solid;
+}
+
+.productInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Helvetica;
+
+    & h1 {
+        color: black;
+        font-size: 2em;
+    }
+
+    & h2 {
+        color: black;
+        font-size: 1.25em;
+    }
+
+    & p {
+        color: rgb(81, 81, 81);
+    }
+
+}
+
+.btnsAndInput {
+    composes: elementShadow;
+
+    background-color: white;
+    border: black 1px solid;
+    border-radius: var(--border-rad);
+}
+
+.quantityElement {
+    display: flex;
+    padding: 8px;
+    box-sizing: border-box;
+    gap: 12px;
+    align-items: center;
+
+    --height: 30px;
+    --width: 30px;
+    --font-size: 22px;
+
+
+    & input {
+        box-sizing: border-box;
+        height: var(--height);
+        width: var(--width);
+        font-size: var(--font-size);
+        text-align: center;
+        border-radius: var(--border-rad);
+        border: 0px;
+        padding: 2px;
+
+    }
+
+    & .adjustQty {
+        padding: 0;
+        font-size: var(--font-size);
+        height: var(--height);
+        width: var(--width);
+        border-radius: var(--border-rad);
+        border: none;
+        text-align: center;
+        background-color: white;
+    }
+}
+
+.addToCartBtn {
+    /* composes: elementShadow; */
+    box-sizing: border-box;
+    height: 32px;
+
+    border: 1px black solid;
+    border-radius: var(--border-rad);
+
+    font-size: calc(var(--font-size) -1px);
+    text-align: center;
+    font-family: Roboto;
+    /* font-weight: 500; */
+    padding: 0 8px;
+
+    box-shadow: black 10px 5px;
+
+    background-color: white;
+    transition: transform 60ms ease-in, background-color,
+        box-shadow 90ms ease;
+}
+
+.addToCartBtn:hover {
+    transform: scale(108%);
+    background-color: rgb(240, 240, 240);
+    box-shadow: black 13px 7px;
+}
+
+.addToCartBtn:active {
+    transform: scale(100%);
+}

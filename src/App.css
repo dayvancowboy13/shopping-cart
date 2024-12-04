@@ -3,28 +3,10 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  border: dashed cornflowerblue 3px;
-}
 
-li {
-  list-style-type: none;
-  display: inline-block;
-  margin: 0 20px;
-}
-
-header {
-  display: grid;
-  border-bottom: solid black 1px;
-  /* justify-content: center; */
-
-  & ul {
-    justify-self: center;
-  }
-
-  & .logo-container {
-    justify-self: first baseline;
-    border: 1px black solid;
-  }
+  border: solid black 1px;
+  border-radius: 12px;
+  box-shadow: black 10px 5px;
 }
 
 .overlay {

@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { ProductDataContext } from "./ProjectContexts";
 import AddToCartElement from "./AddToCartElement";
 import { checkPriceDecimal } from "./UtilityFunctions";
+import classes from './styles/ProductPage.module.css';
 
 
 
@@ -17,12 +18,14 @@ export default function ProductPage() {
     console.log(data)
 
     return (
-        <>
-            <img src={data.image} />
-            <h1>{data.title}</h1>
-            <p>{data.description}.</p>
-            <h2>Price: ${checkPriceDecimal(data.price)}</h2>
-            <AddToCartElement productID={productID} />
-        </>
+        <div className={classes.productContainer}>
+            <div className={classes.imageContainer}><img className={classes.productImg} src={data.image} /></div>
+            <div className={classes.productInfo}>
+                <h1>{data.title}</h1>
+                <p>{data.description}.</p>
+                <h2>Price: ${checkPriceDecimal(data.price)}</h2>
+                <AddToCartElement productID={productID} />
+            </div>
+        </div>
     )
 }

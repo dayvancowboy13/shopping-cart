@@ -9,7 +9,7 @@
 
   /* color-scheme: light dark; */
   color: #213547;
-  background-color: #dadada;
+  background-color: #fff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -34,12 +34,13 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-a {
+/* a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  /* color: #646cff; */
+text-decoration: inherit;
 }
 
+*/
 /* body {
   margin: 0;
   display: flex;
@@ -52,10 +53,6 @@ a {
   font-family: Roboto;
 }
 
-a:hover {
-  color: yellow;
-}
-
 
 h1 {
   font-size: 3.2em;
@@ -63,24 +60,24 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #eaeaea;
+  /* border-radius: 8px; */
+  /* border: 1px solid transparent; */
+  /* padding: 0.6em 1.2em; */
+  /* font-size: 1em; */
+  /* font-weight: 500; */
+  /* font-family: inherit; */
+  /* background-color: #eaeaea; */
   cursor: pointer;
-  transition: border-color 0.25s;
+  /* transition: border-color 0.25s; */
 }
 
 button:hover {
-  border-color: #646cff;
+  /* border-color: #646cff; */
 }
 
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  /* outline: 4px auto -webkit-focus-ring-color; */
 }
 
 /* @media (prefers-color-scheme: light) {
