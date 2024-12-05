@@ -15,3 +15,8 @@ export function checkPriceDecimal(price) {
         return (wholeNumber + '.' + decimal[0] + decimal[1])
     }
 }
+
+export function trimTextString(text) {
+    if (text.length > 60) return text.slice(0, 55) + "...";
+    else return text;
+}
