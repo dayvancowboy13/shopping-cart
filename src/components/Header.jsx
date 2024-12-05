@@ -14,10 +14,16 @@ export default function Header({ showCart }) {
                 <div className={classes.logoContainer}>Smpl Shop</div>
                 <nav>
                     <ul>
-                        <li className={classes.headLink}><Link to='home'>Home</Link></li>
+                        <li className={classes.headLink}><Link className='testing' to='home'>Home</Link></li>
                         <li className={classes.headLink}><Link to='shop'>Shop</Link></li>
                         <li>
-                            <button className={classes.cartBtn} onClick={() => showCart()}>Cart ({itemsInCart})</button></li>
+                            <button className={classes.cartBtn} onClick={() => showCart()}>
+                                <img src='../../images/svg/shopping_cart.svg' />
+                                <div className={classes.cartItemCount} data-count={itemsInCart}>
+                                    {itemsInCart}
+                                </div>
+                            </button>
+                        </li>
                     </ul>
                 </nav>
             </header>
