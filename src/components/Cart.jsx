@@ -44,6 +44,9 @@ export default function Cart({ cartVisible, setCartVisible }) {
                         onClick={() => setCartVisible(false)}>×</button>
                 </div>
                 <div className={classes.cartContents}>
+                    {cartContents.length === 0 ?
+                        <p className={classes.cartEmpty}>Cart is empty</p> : null
+                    }
                     {cartContents.map(elem => {
                         return (
                             <div className={classes.cartItemCard} key={elem.id}>
@@ -72,7 +75,6 @@ export default function Cart({ cartVisible, setCartVisible }) {
                                     </span></div>
                                 <p className={classes.cardText}>Item Total: ${checkPriceDecimal(data[elem.id - 1].price * elem.qty)}</p>
                                 <button className={classes.removeFromCart} onClick={() => removeFromCart(elem.id)}>
-                                    {/* <img src='../../images/svg/remove_shopping_cart.svg' /> */}
                                 </button>
                             </div>
                         )
@@ -80,7 +82,10 @@ export default function Cart({ cartVisible, setCartVisible }) {
                 </div>
                 <div className="cart-footer">
                     <h2 className={classes.cartSubtotal} data-testid='sub-total'>Subtotal: ${cartTotalPrice === 0 ? 0 : checkPriceDecimal(cartTotalPrice)}</h2>
-                    <button className={classes.checkoutBtn}>Checkout</button>
+                    <button className={classes.checkoutBtn}
+                        onClick={() =>
+                            alert("This functionality isn't part of the project :^)")
+                        }>Checkout</button>
                 </div>
             </div >
             <div className={classes.cartOverlay}>
