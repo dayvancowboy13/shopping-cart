@@ -60,7 +60,14 @@
     border-radius: 20px;
     width: var(--diam);
     height: var(--diam);
-    font-size: var(--font-size)
+    font-size: var(--font-size);
+
+    transition: all 80ms ease-in-out;
+}
+
+.closeButton:hover {
+    box-shadow: black 5px 5px;
+    transform: translate(-5px, -5px);
 }
 
 .closeBtnContainer {
@@ -101,16 +108,11 @@
 }
 
 .qtyBtns {
-    box-shadow: black 5px 5px;
     composes: btnsAndInput from './ProductPage.module.css';
+    box-shadow: black 5px 5px;
     margin-left: 13px;
     padding-bottom: 2px;
-    /* display: grid; */
 }
-
-/* .adjustQty {
-    composes: adjustQty from './ProductPage.module.css';
-} */
 
 .adjustQty {
     --height: 18px;
