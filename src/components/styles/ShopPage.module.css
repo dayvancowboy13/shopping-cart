@@ -1,10 +1,14 @@
 .shopContainer {
-    max-height: 75vh;
+    max-height: 73vh;
     overflow: scroll;
     overflow-x: hidden;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    padding: 5px 5px;
+    /* margin: 5px 0; */
+
+    /* padding-bottom: 12px; */
 
 }

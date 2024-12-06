@@ -34,13 +34,12 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-/* a {
+a {
   font-weight: 500;
   /* color: #646cff; */
-text-decoration: inherit;
+  text-decoration: inherit;
 }
 
-*/
 /* body {
   margin: 0;
   display: flex;

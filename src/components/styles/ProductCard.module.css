@@ -1,19 +1,35 @@
-p {
-    font-size: 13px;
-}
-
-h1 {
+.productTitle {
     font-size: 20px;
+    color: black;
+    font-family: Helvetica;
 }
 
-h2 {
+.productPrice {
     font-size: 16px;
+    color: black;
+    font-family: Helvetica;
 }
 
 .card {
     max-width: 350px;
     max-height: 300px;
-    border: 1px black dashed;
+    border: 1px black solid;
+    border-radius: 20px;
+    padding: 10px;
+    height: 250px;
+
+    z-index: 2000;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 150ms ease-in-out;
+}
+
+.card:hover {
+    border: 2px black solid;
+    box-shadow: black 8px 5px;
+    transform: translate(0, -5px);
 }
 
 img {

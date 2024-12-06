@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import { useState, useContext } from "react";
 import { CartContentsContext } from "./ProjectContexts";
+import classes from './styles/ProductPage.module.css';
+
 
 export default function AddToCartElement(props) {
     const [productQuantity, setproductQuantity] = useState(0)
@@ -43,21 +45,26 @@ export default function AddToCartElement(props) {
     console.log(`Product Count: ${productQuantity}`)
 
     return (
-        <>
-            <button
-                onClick={() => changeCount(-1)}
-                id='reduce-count'>-</button>
-            <input onChange={(e) => setproductQuantity(+e.target.value)}
-                onClick={(e) => {
-                    e.target.value = null;
-                }}
-                id='product-count' type='number' value={productQuantity} />
-            <button
-                onClick={() => changeCount(+1)}
-                id='increase-count'>+</button>
+        <div className={classes.quantityElement}>
+            <div className={classes.btnsAndInput}>
+                <button
+                    className={classes.adjustQty}
+                    onClick={() => changeCount(-1)}
+                    id='reduce-count'>-</button>
+                <input onChange={(e) => setproductQuantity(+e.target.value)}
+                    onClick={(e) => {
+                        e.target.value = null;
+                    }}
+                    id='product-count' type='number' value={productQuantity} />
+                <button
+                    className={classes.adjustQty}
+                    onClick={() => changeCount(+1)}
+                    id='increase-count'>+</button>
+            </div>
             <button id='add-to-cart'
+                className={classes.addToCartBtn}
                 onClick={clickAddToCart}>Add to Cart</button>
-        </>
+        </div>
     );
 }
 

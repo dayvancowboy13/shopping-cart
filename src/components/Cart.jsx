@@ -2,7 +2,7 @@ import { useContext, useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import { ProductDataContext, CartContentsContext } from "./ProjectContexts";
 import classes from './styles/Cart.module.css';
-import { checkPriceDecimal } from "./UtilityFunctions";
+import { checkPriceDecimal, trimTextString } from "./UtilityFunctions";
 
 
 export default function Cart({ cartVisible, setCartVisible }) {
@@ -17,8 +17,8 @@ export default function Cart({ cartVisible, setCartVisible }) {
     let cartTotalPrice = cartContents.reduce((acc, elem) =>
         acc + (data[elem.id - 1].price * elem.qty), 0);
 
-    console.log(cartContents);
-    console.log(classes)
+    // console.log(cartContents);
+    // console.log(classes)
 
     function changeCount(id, itemQty, count) {
         console.log("changing the item quantity by " + count)
@@ -39,40 +39,50 @@ export default function Cart({ cartVisible, setCartVisible }) {
         <>
             <div data-testid='cart-main' className={cartVisible ? (classes.show)
                 : (classes.hide)}>
-                <div><button onClick={() => setCartVisible(false)}>×</button></div>
-                <div className="cart-contents">
+                <div className={classes.closeBtnContainer}>
+                    <button className={classes.closeButton}
+                        onClick={() => setCartVisible(false)}>×</button>
+                </div>
+                <div className={classes.cartContents}>
                     {cartContents.map(elem => {
                         return (
-                            <div key={elem.id}>
+                            <div className={classes.cartItemCard} key={elem.id}>
                                 {console.log(elem.qty)}
-                                {data[elem.id - 1].title}
-                                <p>Quantity: {elem.qty}</p>
-                                <button
-                                    onClick={() => {
-                                        elem.qty = changeCount(elem.id, elem.qty, -1)
-                                        forceUpdate();
-                                    }
-                                    }
-                                    id='reduce-count'>-</button>
-                                <button
-                                    onClick={() => {
-                                        elem.qty = changeCount(elem.id, elem.qty, +1)
-                                        forceUpdate();
-                                    }
-                                    }
-                                    id='increase-count'>+</button>
-                                <p>Item price: ${checkPriceDecimal(data[elem.id - 1].price)}</p>
-                                <p>Item Total: ${checkPriceDecimal(data[elem.id - 1].price * elem.qty)}</p>
-                                <button onClick={() => removeFromCart(elem.id)}>Remove item</button>
+                                <div className={classes.productTitle}>{trimTextString(data[elem.id - 1].title)}</div>
+                                <p className={classes.cardText}>Price: ${checkPriceDecimal(data[elem.id - 1].price)}</p>
+                                <div className={classes.productQty}>
+                                    <span>Quantity: {elem.qty}</span>
+                                    <span className={classes.qtyBtns}>
+                                        <button
+                                            className={classes.adjustQty}
+                                            onClick={() => {
+                                                elem.qty = changeCount(elem.id, elem.qty, -1)
+                                                forceUpdate();
+                                            }
+                                            }
+                                            id='reduce-count'>-</button>
+                                        <button
+                                            className={classes.adjustQty}
+                                            onClick={() => {
+                                                elem.qty = changeCount(elem.id, elem.qty, +1)
+                                                forceUpdate();
+                                            }
+                                            }
+                                            id='increase-count'>+</button>
+                                    </span></div>
+                                <p className={classes.cardText}>Item Total: ${checkPriceDecimal(data[elem.id - 1].price * elem.qty)}</p>
+                                <button className={classes.removeFromCart} onClick={() => removeFromCart(elem.id)}>
+                                    {/* <img src='../../images/svg/remove_shopping_cart.svg' /> */}
+                                </button>
                             </div>
                         )
                     })}
                 </div>
                 <div className="cart-footer">
-                    <h2 data-testid='sub-total'>Subtotal: ${cartTotalPrice === 0 ? 0 : checkPriceDecimal(cartTotalPrice)}</h2>
-                    <button>Checkout</button>
+                    <h2 className={classes.cartSubtotal} data-testid='sub-total'>Subtotal: ${cartTotalPrice === 0 ? 0 : checkPriceDecimal(cartTotalPrice)}</h2>
+                    <button className={classes.checkoutBtn}>Checkout</button>
                 </div>
-            </div>
+            </div >
             <div className={classes.cartOverlay}>
 
             </div>
