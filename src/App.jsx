@@ -21,17 +21,12 @@ function App() {
   }, [])
 
   function addToCart(productID, quantity) {
-    // need to add check if the item is already in the cart, then either
-    // add or update the qty of that item if the user tries to add more
-    console.log('Running addToCart function')
     let tempCart = [...cartContents];
-    // console.log(tempCart)
     tempCart.push({ id: productID, qty: quantity });
     setCartContents(tempCart);
   }
 
   function removeFromCart(productID) {
-    console.log("Removing item from cart");
     let tempCart = [...cartContents];
     setCartContents(tempCart.filter((elem) => elem.id !== productID));
   }

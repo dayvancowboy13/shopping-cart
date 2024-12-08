@@ -1,0 +1,10 @@
+.homeContainer {
+    display: grid;
+    grid-template-rows: .8fr 1.5fr;
+    justify-content: center;
+}
+
+.homepageWelcome {
+    font-family: Roboto;
+    color: black;
+}

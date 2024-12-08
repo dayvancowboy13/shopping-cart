@@ -1,0 +1,40 @@
+.carouselContainer {
+    display: grid;
+    /* flex-direction: column; */
+    border: 2px black solid;
+    box-shadow: black 10px 5px;
+    border-radius: 12px;
+    justify-content: center;
+    /* justify-items: center; */
+    align-items: center;
+    padding: 4px 9px;
+    height: 360px;
+    width: auto;
+}
+
+.featuredTitle {
+    font-family: Helvetica;
+    color: black;
+    font-size: 2em;
+}
+
+.featuredItems {
+    display: flex;
+}
+
+.productCard {
+    width: 300px;
+}
+
+.carouselButton {
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    transition: transform 60ms ease-in, background-color,
+        box-shadow 90ms ease;
+}
+
+.carouselButton:hover {
+    /* transform: scale(108%); */
+    background-color: rgb(240, 240, 240);
+}

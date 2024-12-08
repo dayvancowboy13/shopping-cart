@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import { checkPriceDecimal, trimTextString } from "./UtilityFunctions";
 
 export default function ProductCard(props) {
-    // console.log(props.data)
-    // console.log(classes.card)
+
     return (
-        <Link to={`product${props.data.id}`}>
+        <Link to={{
+            pathname: `/shop/product${props.data.id}`
+        }}>
             <div className={classes.card}>
                 <img src={props.data.image}></img>
                 <h1 className={classes.productTitle}>{trimTextString(props.data.title)}</h1>
