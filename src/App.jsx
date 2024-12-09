@@ -1,9 +1,9 @@
 import { useState, useEffect, } from 'react'
+import { Outlet } from 'react-router-dom';
+import { ProductDataContext, CartContentsContext } from './components/ProjectContexts';
 import './App.css'
 import Header from './components/Header';
-import { Outlet } from 'react-router-dom';
 import Footer from './components/Footer';
-import { ProductDataContext, CartContentsContext } from './components/ProjectContexts';
 import Cart from './components/Cart';
 
 
@@ -11,7 +11,6 @@ function App() {
   const [productData, setProductData] = useState(null);
   const [cartContents, setCartContents] = useState([]);
   const [cartVisible, setCartVisible] = useState(false);
-  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     console.log('Fetching product data');

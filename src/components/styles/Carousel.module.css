@@ -1,11 +1,9 @@
 .carouselContainer {
     display: grid;
-    /* flex-direction: column; */
     border: 2px black solid;
     box-shadow: black 10px 5px;
     border-radius: 12px;
     justify-content: center;
-    /* justify-items: center; */
     align-items: center;
     padding: 4px 9px;
     height: 360px;
@@ -35,6 +33,5 @@
 }
 
 .carouselButton:hover {
-    /* transform: scale(108%); */
     background-color: rgb(240, 240, 240);
 }

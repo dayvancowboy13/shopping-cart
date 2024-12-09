@@ -10,8 +10,10 @@ export default function Carousel() {
     // get 3 random indeces to display, no repeats
 
     useEffect(() => {
+        let tempArray = [];
+
         for (let k = 0; k < 20; k++) {
-            randomIndeces.push(k);
+            tempArray.push(k);
         }
 
         let i = 20;
@@ -21,13 +23,12 @@ export default function Carousel() {
         while (i--) {
             j = Math.floor(Math.random() * i);
 
-            temp = randomIndeces[i];
-            randomIndeces[i] = randomIndeces[j];
-            randomIndeces[j] = temp;
+            temp = tempArray[i];
+            tempArray[i] = tempArray[j];
+            tempArray[j] = temp;
         }
 
-        setRandomIndeces(randomIndeces.slice(0, 3));
-        // setCurrentItem(randomIndeces[0]);
+        setRandomIndeces(tempArray.slice(0, 3));
     }, []);
 
     function cycleCarousel(num) {

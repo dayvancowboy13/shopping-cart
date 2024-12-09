@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContentsContext } from './ProjectContexts';
@@ -6,8 +7,8 @@ import classes from './styles/Header.module.css'
 export default function Header({ showCart }) {
     const { cartContents } = useContext(CartContentsContext)
 
-    const itemsInCart = cartContents.reduce(
-        (acc, elem) => +acc + elem.qty, 0);
+    const itemsInCart = cartContents.reduce((acc, elem) => +acc + elem.qty, 0);
+
     return (
         <>
             <header className={classes.header}>
@@ -29,4 +30,9 @@ export default function Header({ showCart }) {
             </header>
         </>
     );
+}
+
+
+Header.propTypes = {
+    showCart: PropTypes.func,
 }

@@ -4,7 +4,6 @@
     grid-template-columns: .75fr 1fr;
 
     --border-rad: 8px;
-    /* grid-template-rows: repeat(4, 1fr); */
 }
 
 .elementShadow {
@@ -19,7 +18,7 @@
 
 .productImg {
     composes: elementShadow;
-    max-height: 450px;
+    max-height: 420px;
     width: auto;
     max-width: 400px;
     padding: 8px;
@@ -95,7 +94,6 @@
 }
 
 .addToCartBtn {
-    /* composes: elementShadow; */
     box-sizing: border-box;
     height: 32px;
 
@@ -105,7 +103,6 @@
     font-size: calc(var(--font-size) -1px);
     text-align: center;
     font-family: Roboto;
-    /* font-weight: 500; */
     padding: 0 8px;
 
     box-shadow: black 10px 5px;

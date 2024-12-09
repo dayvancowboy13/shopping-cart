@@ -41,12 +41,3 @@
 .cart-container {
   visibility: hidden;
 }
-
-footer {
-  border-top: solid black 1px;
-  color: black;
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  padding-top: 5px;
-}

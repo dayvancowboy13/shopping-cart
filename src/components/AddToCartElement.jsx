@@ -42,8 +42,6 @@ export default function AddToCartElement(props) {
         }
     }
 
-    console.log(`Product Count: ${productQuantity}`)
-
     return (
         <div className={classes.quantityElement}>
             <div className={classes.btnsAndInput}>

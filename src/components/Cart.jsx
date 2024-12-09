@@ -17,11 +17,7 @@ export default function Cart({ cartVisible, setCartVisible }) {
     let cartTotalPrice = cartContents.reduce((acc, elem) =>
         acc + (data[elem.id - 1].price * elem.qty), 0);
 
-    // console.log(cartContents);
-    // console.log(classes)
-
     function changeCount(id, itemQty, count) {
-        console.log("changing the item quantity by " + count)
         if (itemQty + count >= 1 && (itemQty + count) <= 10) return itemQty + count;
         else if (itemQty + count === 0) {
             if (confirm("Remove item from cart?")) {
@@ -50,7 +46,6 @@ export default function Cart({ cartVisible, setCartVisible }) {
                     {cartContents.map(elem => {
                         return (
                             <div className={classes.cartItemCard} key={elem.id}>
-                                {console.log(elem.qty)}
                                 <div className={classes.productTitle}>{trimTextString(data[elem.id - 1].title)}</div>
                                 <p className={classes.cardText}>Price: ${checkPriceDecimal(data[elem.id - 1].price)}</p>
                                 <div className={classes.productQty}>
