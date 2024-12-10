@@ -7,7 +7,7 @@ export default function Footer() {
                 Copyright © 2024 Chris Friedrich
                 <span className={classes.logoSpan}>
                     <a href='https://github.com/dayvancowboy13'>
-                        <img src='../../public/images/svg/github.svg' /></a>
+                        <img src='../../images/svg/github.svg' /></a>
                 </span>
                 (dayvancowboy13)
             </footer >
